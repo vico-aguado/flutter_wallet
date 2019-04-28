@@ -8,9 +8,9 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 Flutter plugin to add pkpass to iOS wallet (Passbook)
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/vico-aguado/flutter_wallet.git'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'Vico Aguado' => 'vico.aguado@gmail.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
