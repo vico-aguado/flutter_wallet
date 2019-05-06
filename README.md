@@ -46,7 +46,9 @@ class _MyAppState extends State<MyApp> {
     Response response;
     Dio dio = new Dio();
 
-    response = await dio.post("http://domain.com/getPKPass.php", data: jsonParameters, options: Options(responseType: ResponseType.bytes));
+    response = await dio.post("http://domain.com/getPKPass.php", 
+                          data: jsonParameters, 
+                          options: Options(responseType: ResponseType.bytes));
 
     if (response.data != null) {
       try {
