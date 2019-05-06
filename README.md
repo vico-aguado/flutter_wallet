@@ -93,6 +93,10 @@ And Wallet service in your application service
 
 ![](https://github.com/vico-aguado/flutter_wallet/blob/master/appService.png)
 
+## TODO:
+* Add Android compatibility.
+* Add more documentation.
+
 ------------------------------------------------------------------------------
 
 ## Getting Started
