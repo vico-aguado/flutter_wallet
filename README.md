@@ -7,7 +7,7 @@ Flutter plugin to add pkpass to iOS wallet (Passbook)
 To use, you must at least specify one arguments **pkpass**.
 * The argument **pkpass** is List<int> type.
   
-## Example
+### Example
   
 ```dart
 import 'package:flutter/material.dart';
