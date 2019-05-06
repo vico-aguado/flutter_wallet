@@ -8,7 +8,8 @@ class FlutterWallet {
       const MethodChannel('com.vico-aguado.flutter/wallet');
 
   static Future<bool> addPass({@required List<int> pkpass}) async {
-    final bool result = await _channel.invokeMethod('addWalletPass', <String, dynamic>{'pkpass' : pkpass});
+    final bool result = await _channel
+        .invokeMethod('addWalletPass', <String, dynamic>{'pkpass': pkpass});
     return result;
   }
 }
