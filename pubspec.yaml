@@ -1,7 +1,7 @@
 name: flutter_wallet
 description: Flutter plugin to add pkpass to iOS wallet (Passbook)
 version: 0.0.1
-author: Vico Aguado
+author: Vico Aguado <contacto@vico-aguado.com>
 homepage: https://github.com/vico-aguado/flutter_wallet
 
 environment:
