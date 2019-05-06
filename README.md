@@ -82,7 +82,16 @@ class _MyAppState extends State<MyApp> {
 }
 ```
 
+## Notes
 
+Don't forget enable Wallet capability in your Xcode project:
+
+![](https://github.com/vico-aguado/flutter_wallet/blob/master/capability.png)
+
+And Wallet service in your application service 
+(Certificates, Identifiers & Profiles / Identifiers / App IDs / <Your app id>):
+
+![](https://github.com/vico-aguado/flutter_wallet/blob/master/appService.png)
 
 ------------------------------------------------------------------------------
 
