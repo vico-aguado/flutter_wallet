@@ -95,6 +95,8 @@ And Wallet service in your application service
 
 ------------------------------------------------------------------------------
 
+## Getting Started
+
 This project is a starting point for a Flutter
 [plug-in package](https://flutter.io/developing-packages/),
 a specialized package that includes platform-specific implementation code for
