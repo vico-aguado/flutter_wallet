@@ -1,5 +1,7 @@
 # flutter_wallet
 
+[![pub package](https://img.shields.io/pub/v/flutter_wallet.svg)](https://pub.dartlang.org/packages/flutter_wallet)
+
 Flutter plugin to add pkpass to iOS wallet (Passbook)
 
 ## Usage
