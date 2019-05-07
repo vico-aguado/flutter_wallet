@@ -85,11 +85,15 @@
 (<wbr>{<span class="parameter" id="addPass-param-pkpass"><span>@required</span> <span class="type-annotation"><a href="dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/int-class.html">int</a></span>&gt;</span></span> <span class="parameter-name">pkpass</span></span> })
       
     </section>
+    <section class="desc markdown">
+      <p>Returns bool value if iOS can covert one pkpass file</p><ul><li>parameters:<ul><li>pkpass: List with <int> values from pkpass file</int></li></ul></li></ul>
+    </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">static Future&lt;bool&gt; addPass({@required List&lt;int&gt; pkpass}) async {
-  final bool result = await _channel.invokeMethod(&#39;addWalletPass&#39;, &lt;String, dynamic&gt;{&#39;pkpass&#39; : pkpass});
+  final bool result = await _channel
+      .invokeMethod(&#39;addWalletPass&#39;, &lt;String, dynamic&gt;{&#39;pkpass&#39;: pkpass});
   return result;
 }</code></pre>
     </section>
@@ -103,7 +107,7 @@
 
 <footer>
   <span class="no-break">
-    flutter_wallet 0.0.1
+    flutter_wallet 0.0.2
   </span>
 
   
