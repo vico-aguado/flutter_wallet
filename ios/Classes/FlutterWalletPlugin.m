@@ -14,7 +14,7 @@
   if ([@"addWalletPass" isEqualToString:call.method]) {
       
       if (call.arguments != nil) {
-        NSLog(@"................... Hola Mundo ...................");
+        
           if ([call.arguments[@"pkpass"] isEqual:[NSNull null]]) {
               result([FlutterError errorWithCode:@"WITHOUT_PARAMETERS" message:@"Don't have 'pkpass' parameter" details:@"You need add 'pkpass' parameter"]);
           } else {
@@ -45,10 +45,10 @@
                           result([NSNumber numberWithBool:YES]);
                       }
                   } else {
-                      result([FlutterError errorWithCode:@"PARAMETERS_INVALID" message:@"Your 'pkpass' parameter is invalid" details:nil]);
+                      result([FlutterError errorWithCode:@"PARAMETERS_INVALID" message:@"Your 'pkpass' parameter is invalid (Empty)" details:nil]);
                   }
               } else {
-                  result([FlutterError errorWithCode:@"PARAMETERS_INVALID" message:@"Your 'pkpass' parameter is invalid" details:nil]);
+                  result([FlutterError errorWithCode:@"PARAMETERS_INVALID" message:@"Your 'pkpass' parameter is invalid (NSArray)" details:nil]);
               }
           }
       }else{
