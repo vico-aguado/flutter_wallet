@@ -14,6 +14,7 @@
   if ([@"addWalletPass" isEqualToString:call.method]) {
       
       if (call.arguments != nil) {
+        NSLog(@"................... Hola Mundo ...................");
           if ([call.arguments[@"pkpass"] isEqual:[NSNull null]]) {
               result([FlutterError errorWithCode:@"WITHOUT_PARAMETERS" message:@"Don't have 'pkpass' parameter" details:@"You need add 'pkpass' parameter"]);
           } else {
