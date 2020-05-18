@@ -83,7 +83,40 @@
           result([FlutterError errorWithCode:@"WITHOUT_PARAMETERS" message:@"Don't have 'pkpass' parameter" details:@"You need add 'pkpass' parameter"]);
       }
       
-  } else {
+  } else if ([@"isWalletPass" isEqualToString:call.method]) {
+          if (call.arguments != nil) {
+              if ([call.arguments[@"pkpass"] isEqual:[NSNull null]]) {
+                  result([FlutterError errorWithCode:@"WITHOUT_PARAMETERS" message:@"Don't have 'pkpass' parameter" details:@"You need add 'pkpass' parameter"]);
+              } else {
+                  if ([call.arguments[@"pkpass"] isKindOfClass:[FlutterStandardTypedData class]]) {
+                    FlutterStandardTypedData *pkpassdata = call.arguments[@"pkpass"];
+
+                    NSError* errorPass = nil;
+                    PKPass *newPass = [[PKPass alloc] initWithData:pkpassdata.data
+                                                             error:&errorPass];
+
+                    if (errorPass!=nil) {
+                        result([FlutterError errorWithCode:@"PKPASS_ERROR" message:[errorPass localizedDescription] details:nil]);
+                    }else{
+                        //init a pass library
+                        PKPassLibrary* passLib = [[PKPassLibrary alloc] init];
+                        //check if pass library contains this pass already
+                        if([passLib containsPass:newPass]) {
+                            //pass already exists in library
+                            result([NSNumber numberWithBool:YES]);
+                        } else {
+                            result([NSNumber numberWithBool:NO]);
+                        }
+                    }
+                  } else {
+                    result([FlutterError errorWithCode:@"PARAMETERS_INVALID" message:@"Your 'pkpass' parameter is invalid (Not is FlutterStandardTypedData)" details:nil]);
+                  }
+              }
+          }else{
+              result([FlutterError errorWithCode:@"WITHOUT_PARAMETERS" message:@"Don't have 'pkpass' parameter" details:@"You need add 'pkpass' parameter"]);
+          }
+
+      } else {
     result(FlutterMethodNotImplemented);
   }
 }
