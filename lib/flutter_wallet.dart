@@ -46,4 +46,10 @@ class FlutterWallet {
         .invokeMethod('addWalletPass', <String, dynamic>{'pkpass': pkpass});
     return result;
   }
+   
+  static Future<bool> isPassAlreadyExist({@required List<int> pkpass}) async {
+    final bool result = await _channel
+        .invokeMethod('isWalletPass', <String, dynamic>{'pkpass': pkpass});
+    return result;
+  }
 }
