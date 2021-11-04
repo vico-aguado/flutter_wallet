@@ -5,13 +5,25 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
+import io.flutter.embedding.engine.plugins.FlutterPlugin;
+
 
 /** FlutterWalletPlugin */
-public class FlutterWalletPlugin implements MethodCallHandler {
+public class FlutterWalletPlugin implements MethodCallHandler, FlutterPlugin {
   /** Plugin registration. */
   public static void registerWith(Registrar registrar) {
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), "flutter_wallet");
-    channel.setMethodCallHandler(new FlutterWalletPlugin());
+    FlutterWalletPlugin instance = new FlutterWalletPlugin();
+    instance.onAttachedToEngine(registrar.messenger());
+  }
+
+  @Override
+  public void onAttachedToEngine(FlutterPluginBinding binding) {
+    onAttachedToEngine(binding.getBinaryMessenger());
+  }
+
+  private void onAttachedToEngine(BinaryMessenger messenger) {
+    final MethodChannel channel = new MethodChannel(messenger, "flutter_wallet");
+    channel.setMethodCallHandler(this);
   }
 
   @Override
