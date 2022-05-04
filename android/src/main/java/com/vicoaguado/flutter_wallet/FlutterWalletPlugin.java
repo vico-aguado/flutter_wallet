@@ -1,5 +1,8 @@
 package com.vicoaguado.flutter_wallet;
 
+import androidx.annotation.NonNull;
+
+import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
@@ -10,19 +13,21 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 
 /** FlutterWalletPlugin */
 public class FlutterWalletPlugin implements MethodCallHandler, FlutterPlugin {
-  /** Plugin registration. */
-  public static void registerWith(Registrar registrar) {
-    FlutterWalletPlugin instance = new FlutterWalletPlugin();
-    instance.onAttachedToEngine(registrar.messenger());
-  }
+
+  MethodChannel channel;
 
   @Override
   public void onAttachedToEngine(FlutterPluginBinding binding) {
-    onAttachedToEngine(binding.getBinaryMessenger());
+    _onAttachedToEngine(binding.getBinaryMessenger());
   }
 
-  private void onAttachedToEngine(BinaryMessenger messenger) {
-    final MethodChannel channel = new MethodChannel(messenger, "flutter_wallet");
+  @Override
+  public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
+    channel.setMethodCallHandler(null);
+  }
+
+  private void _onAttachedToEngine(BinaryMessenger messenger) {
+    channel = new MethodChannel(messenger, "flutter_wallet");
     channel.setMethodCallHandler(this);
   }
 
