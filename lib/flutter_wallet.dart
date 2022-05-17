@@ -41,8 +41,8 @@ class FlutterWallet {
   ///
   /// - parameters:
   ///    - pkpass: List with <int> values from pkpass file 
-  static Future<bool> addPass({@required List<int> pkpass}) async {
-    final bool result = await _channel
+  static Future<bool?> addPass({required List<int> pkpass}) async {
+    final bool? result = await _channel
         .invokeMethod('addWalletPass', <String, dynamic>{'pkpass': pkpass});
     return result;
   }
